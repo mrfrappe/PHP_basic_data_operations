@@ -13,13 +13,20 @@
     
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['submit'])) {
-            $id = count($mydata)+1;
-            $firstname = $_POST['first_name'];
-            $lastname = $_POST['last_name'];
-            $email = $_POST['email'];
-            $gender = $_POST['gender'];
-            $ip_address = $_POST['first_name'];
+        if (isset($_POST['submit'])) { 
+            $additionalUser = array(
+                                'id' => count($mydata)+1,
+                                'first_name' => $_POST['first_name'],
+                                'last_name' => $_POST['last_name'],
+                                'email' => $_POST['email'],
+                                'gender' => $_POST['gender'],
+                                'ip_address' => $_POST['ip_address'],
+                                );
+            array_push($mydata, $additionalUser);
+            $jsonData = json_encode($mydata);
+            file_put_contents('DATA.json', $jsonData);
+
+
             echo "<h3>Created user:</h3></br>".
                 "<table><tr><th>id</th>".
                 "<th>first_name</th>".
@@ -27,8 +34,8 @@
                 "<th>email</th>".
                 "<th>gender</th>".
                 "<th>ip_address</th></tr>".
-                "<tr><td>".$id."</td><td>".$firstname."</td><td>".$lastname."</td><td>".$email."</td><td>".$gender."</td><td>".$ip_address."</td></tr></table>";
-        }
+                "<tr><td>" . $additionalUser['id'] . "</td><td>" . $additionalUser['first_name'] ."</td><td>" . $additionalUser['last_name'] . "</td><td>" . $additionalUser['email'] . "</td><td>" . $additionalUser['gender'] . "</td><td>" . $additionalUser['ip_address'] . "</td></tr></table>";
+        } 
     }
 
 ?>

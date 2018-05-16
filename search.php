@@ -1,10 +1,10 @@
 <?php
     $mydata = json_decode(file_get_contents("DATA.json"), true);
  
-
     echo "<h2>Search</h2>";
     echo "<p><a href='index.php'>Back</a></p>";
     echo "<form method='post'><input type='text' name='search' value=''><input type='submit' name='submit' value='Search'></form>";
+    echo "<p>Search by: id, first_name, last_name, email, gender, ip_address.</p>";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['submit'])) {
