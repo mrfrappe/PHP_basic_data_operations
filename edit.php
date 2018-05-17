@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <link rel="stylesheet" href="style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -30,24 +31,24 @@
                 print_r("<td>" . $mydata[$value]["email"] . "</td>");
                 print_r("<td>" . $mydata[$value]["gender"] . "</td>");
                 print_r("<td>" . $mydata[$value]["ip_address"] . "</td></tr>");
-                echo "</table></br>";
+                echo "</table>";
             
-                echo "<form method='post'>.
+                echo "<form method='post'>
                     <div class='row'>
-                    <div class='col-md-6'>
-                    <div class='form-group'><label for='firstNameInput'>First name</label><input class='form-control id='firstNameInput' placeholder='Enter first name' type='text' name='first_name' value='" . $mydata[$value]["first_name"] . "' required></div></br>".
-                    "<div class='form-group'><label for='lastNameInput'>Last name </label><input class='form-control' id='lastNameInput' placeholder='Enter last name' type='text' name='last_name' value='" . $mydata[$value]["last_name"] . "' required></div></br>".
-                    "<div class='form-group'><label for='emailInput'>Email</label><input class='form-control' id='emailInput' placeholder='Enter email' type='email' name='email' value='" . $mydata[$value]["email"] . "' required/></div></br>".
+                    <div class='centered'>
+                    <div class='form-group'><label for='firstNameInput'>First name</label><input class='form-control id='firstNameInput' placeholder='Enter first name' type='text' name='first_name' value='" . $mydata[$value]["first_name"] . "' required></div>".
+                    "<div class='form-group'><label for='lastNameInput'>Last name </label><input class='form-control' id='lastNameInput' placeholder='Enter last name' type='text' name='last_name' value='" . $mydata[$value]["last_name"] . "' required></div>".
+                    "<div class='form-group'><label for='emailInput'>Email</label><input class='form-control' id='emailInput' placeholder='Enter email' type='email' name='email' value='" . $mydata[$value]["email"] . "' required/></div>".
                     "<div class='form-group'><label for='ipAdressInput'>IP address</label><input class='form-control' id='ipAdressInput' placeholder='Enter ip address' type='text' name='ip_address' value='" . $mydata[$value]["ip_address"] . "' required/></div></br>Gender</br>";
      
 
             if ($mydata[$value]["gender"] == "Female") {
-                echo "<div class='form-check'><input class='form-check-input'       id='genderCheck1' type='checkbox' name='gender' value='Male' require><label     class='form-check-label' for='genderCheck2'>Male</label></div>
-                    <div class='form-check'><input class='form-check-input' id=genderCheck2' type='checkbox' name='gender' value='Female' require checked><label class='form-check-label' for='genderCheck2'>Female</label></div>";
+                echo "<div class='form-check'><input class='form-check-input'id='genderCheck1' type='radio' name='gender' value='Male' required><label     class='form-check-label' for='genderCheck2'>Male</label></div>
+                    <div class='form-check'><input class='form-check-input' id=genderCheck2' type='radio' name='gender' value='Female' required checked><label class='form-check-label' for='genderCheck2'>Female</label></div>";
             }
             else {
-                echo "<div class='form-check'><input class='form-check-input'     id='genderCheck1' type='checkbox' name='gender' value='Male' require checked><label class='form-check-label' for='genderCheck2'>Male</label></div>
-                    <div class='form-check'><input class='form-check-input' id=genderCheck2' type='checkbox' name='gender' value='Female' require ><label class='form-check-label' for='genderCheck2'>Female</label></div>";
+                echo "<div class='form-check'><input class='form-check-input' id='genderCheck1' type='radio' name='gender' value='Male' required checked><label class='form-check-label' for='genderCheck2'>Male</label></div>
+                    <div class='form-check'><input class='form-check-input' id=genderCheck2' type='radio' name='gender' value='Female' required ><label class='form-check-label' for='genderCheck2'>Female</label></div>";
             }
                 echo  "<button type='submit' name='proces' class='btn btn-primary'>Create</button></div></div></form>";
 

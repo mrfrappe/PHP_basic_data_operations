@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <link rel="stylesheet" href="style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -17,9 +18,8 @@
 
                 echo "<h2>Search</h2>";
                 echo "<p><a href='index.php'>Back</a></p>";
-            echo "<form method='post' ><div class='row'>
-                <div class='col-md-6'>
-                    <div class='form-group'><label for='search'></label><input class='form-control id='search' placeholder='' type='text' name='search' value='' required></div><button type='submit' name='submit' class='btn btn-primary'>Search</button></div></div></form>";
+                echo "<form method='post' ><div class='row'><div class='centered'><div class='form-group'><label for='search'></label><input class='form-control id='search' placeholder='' type='text' name='search' value='' required></div><p> Search by: id, first_name, last_name, email, gender, ip_address</p><button type='submit' name='submit' class='btn btn-primary'>Search</button></div></div></form>";
+                
 
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

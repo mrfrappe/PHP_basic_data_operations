@@ -1,0 +1,10 @@
+table {
+    width:100%;
+}
+.centered {
+    max-width: 500px;
+    margin: auto;
+}
+.menu {
+    text-align: center;
+}
