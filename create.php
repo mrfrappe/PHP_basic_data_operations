@@ -4,16 +4,16 @@
     echo "<h2>Create</h2>";
     echo "<p><a href='index.php'>Back</a></p>";
 
-    echo "<form method='post'><label>First name<input type='text' name='first_name' value=''></label></br>".
-        "<label>Last name <input type='text' name='last_name' value=''></label></br>".
-        "<label>Email <input type='text' name='email' value=''></label></br>".
-        "<label>IP address <input type='text' name='ip_address' value=''></label></br>".
-        "<label>Gender </label></br><label><input type='checkbox' name='gender' value='Male'>Male</label><label><input type='checkbox' name='gender' value='Female'></label>Female</br>".
-        "<input type='submit' name='submit' value='Create'></form>";
+    echo "<form method='post'><label>First name<input type='text' name='first_name' value='' required/></label></br>".
+        "<label>Last name <input type='text' name='last_name' value='' required/></label></br>".
+        "<label>Email <input type='text' name='email' value='' required/></label></br>".
+        "<label>IP address <input type='text' name='ip_address' value='' required/></label></br>".
+        "<label>Gender </label></br><label><input type='checkbox' name='gender' value='Male' />Male</label><label><input type='checkbox' name='gender' value='Female' /></label>Female</br>".
+        "<input type='submit' name='submit' value='Create'/></form>";
     
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['submit'])) { 
+        if (isset($_POST['submit'])) {
             $additionalUser = array(
                                 'id' => count($mydata)+1,
                                 'first_name' => $_POST['first_name'],
@@ -25,7 +25,6 @@
             array_push($mydata, $additionalUser);
             $jsonData = json_encode($mydata);
             file_put_contents('DATA.json', $jsonData);
-
 
             echo "<h3>Created user:</h3></br>".
                 "<table><tr><th>id</th>".
@@ -39,3 +38,4 @@
     }
 
 ?>
+<!--checkbox to edit-->

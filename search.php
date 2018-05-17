@@ -17,13 +17,14 @@
                     "<th>ip_address</th></tr>";
                 foreach ($mydata as $val) {
                     if ($val["id"] == $tosearch or $val["first_name"] == $tosearch or $val["last_name"] == $tosearch or $val["email"] == $tosearch or $val["gender"] == $tosearch or $val["ip_address"] == $tosearch){
+                    $var = $val["id"];
                     print_r("<tr><td>" . $val["id"] . "</td>");
                     print_r("<td>" . $val["first_name"] . "</td>");
                     print_r("<td>" . $val["last_name"] . "</td>");
                     print_r("<td>" . $val["email"] . "</td>");
                     print_r("<td>" . $val["gender"] . "</td>");
                     print_r("<td>" . $val["ip_address"] . "</td>");
-                    echo "<td><a href='edit.php'>Edit</a></td></tr>";
+                    echo "<td><a href='edit.php?var=$var'>Edit</a></td></tr>";
                     }
                 }
         }
