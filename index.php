@@ -11,14 +11,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body>
-    <?php
-    $mydata = json_decode(file_get_contents("DATA.json"), true);
-	echo "<h2>PHP Basic data operations</h2>";
-    echo count($mydata) . " records in database";
-//    include_once  ("show.php");
-    echo "<p><a href='create.php'>Create user</a></p>";
-    echo "<p><a href='show.php'>Show users</a></p>";
-    echo "<p><a href='search.php'>Search</a></p>";
-    ?>
+        <div class="container">
+            <?php
+                $mydata = json_decode(file_get_contents("DATA.json"), true);
+                echo "<h2>PHP Basic data operations</h2>";
+                echo count($mydata) . " records in database";
+            //    include_once  ("show.php");
+                echo "<p><a href='create.php'>Create user</a></p>";
+                echo "<p><a href='show.php'>Show users</a></p>";
+                echo "<p><a href='search.php'>Search</a></p>";
+            ?>
+        </div>
     </body>
 </html>

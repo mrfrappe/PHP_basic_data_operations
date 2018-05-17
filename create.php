@@ -9,48 +9,55 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     </head>
     <body>
-<?php
-    $mydata = json_decode(file_get_contents("DATA.json"), true);
+        <div class="container">
+            <?php
+                $mydata = json_decode(file_get_contents("DATA.json"), true);
 
-    echo "<h2>Create</h2>";
-    echo "<p><a href='index.php'>Back</a></p>";
+                echo "<h2>Create</h2>";
+                echo "<p><a href='index.php'>Back</a></p>";
 
-    echo "<form method='post'><label>First name<input type='text' name='first_name' value='' required/></label></br>".
-        "<label>Last name <input type='text' name='last_name' value='' required/></label></br>".
-        "<label>Email <input type='text' name='email' value='' required/></label></br>".
-        "<label>IP address <input type='text' name='ip_address' value='' required/></label></br>".
-        "<label>Gender </label></br><label><input type='checkbox' name='gender' value='Male' />Male</label><label><input type='checkbox' name='gender' value='Female' /></label>Female</br>".
-        "<input type='submit' name='submit' value='Create'/></form>";
-    
+                echo "<form method='post'>.
+                <div class='row'>
+                <div class='col-md-6'>
+                    <div class='form-group'><label for='firstNameInput'>First name</label><input class='form-control id='firstNameInput' placeholder='Enter first name' type='text' name='first_name' value='' required></div></br>".
+                    "<div class='form-group'><label for='lastNameInput'>Last name </label><input class='form-control' id='lastNameInput' placeholder='Enter last name' type='text' name='last_name' value='' required></div></br>".
+                    "<div class='form-group'><label for='emailInput'>Email</label><input class='form-control' id='emailInput' placeholder='Enter email' type='email' name='email' value='' required/></div></br>".
+                    "<div class='form-group'><label for='ipAdressInput'>IP address</label><input class='form-control' id='ipAdressInput' placeholder='Enter ip address' type='text' name='ip_address' value='' required/></div></br>Gender</br>".
+                    "<div class='form-check'><input class='form-check-input' id='genderCheck1' type='checkbox' name='gender' value='Male' require><label class='form-check-label' for='genderCheck2'>Male</label></div>
+                    <div class='form-check'><input class='form-check-input' id=genderCheck2' type='checkbox' name='gender' value='Female' require><label class='form-check-label' for='genderCheck2'>Female</label></div>".
+                    "<button type='submit' name='submit' class='btn btn-primary'>Create</button></div></div></form>";
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['submit'])) {
-            $additionalUser = array(
-                                'id' => count($mydata)+1,
-                                'first_name' => $_POST['first_name'],
-                                'last_name' => $_POST['last_name'],
-                                'email' => $_POST['email'],
-                                'gender' => $_POST['gender'],
-                                'ip_address' => $_POST['ip_address'],
-                                );
-            array_push($mydata, $additionalUser);
-            $jsonData = json_encode($mydata);
-            file_put_contents('DATA.json', $jsonData);
 
-            echo "<h3>Created user:</h3></br>".
-                "<table class='table-striped table-responsive'><tr><th>id</th>".
-                "<th>first_name</th>".
-                "<th>last_name</th>".
-                "<th>email</th>".
-                "<th>gender</th>".
-                "<th>ip_address</th></tr>".
-                "<tr><td>" . $additionalUser['id'] . "</td><td>" . $additionalUser['first_name'] ."</td><td>" . $additionalUser['last_name'] . "</td><td>" . $additionalUser['email'] . "</td><td>" . $additionalUser['gender'] . "</td><td>" . $additionalUser['ip_address'] . "</td></tr></table>";
-        } 
-    }
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    if (isset($_POST['submit'])) {
+                        $additionalUser = array(
+                                            'id' => count($mydata)+1,
+                                            'first_name' => $_POST['first_name'],
+                                            'last_name' => $_POST['last_name'],
+                                            'email' => $_POST['email'],
+                                            'gender' => $_POST['gender'],
+                                            'ip_address' => $_POST['ip_address'],
+                                            );
+                        array_push($mydata, $additionalUser);
+                        $jsonData = json_encode($mydata);
+                        file_put_contents('DATA.json', $jsonData);
 
-?>
-<!--checkbox to edit-->
+                        echo "<h3>Created user:</h3></br>".
+                            "<table class='table-striped table-responsive'><tr><th>id</th>".
+                            "<th>first_name</th>".
+                            "<th>last_name</th>".
+                            "<th>email</th>".
+                            "<th>gender</th>".
+                            "<th>ip_address</th></tr>".
+                            "<tr><td>" . $additionalUser['id'] . "</td><td>" . $additionalUser['first_name'] ."</td><td>" . $additionalUser['last_name'] . "</td><td>" . $additionalUser['email'] . "</td><td>" . $additionalUser['gender'] . "</td><td>" . $additionalUser['ip_address'] . "</td></tr></table>";
+                    } 
+                }
+
+            ?>
+        </div>
     </body>
+
 </html>
