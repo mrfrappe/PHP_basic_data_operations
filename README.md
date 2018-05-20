@@ -9,7 +9,7 @@ Aplication for basic operation on database json file.
 
 ## Built With
 
-* [PHP 5.6](http://php.net/docs.php) - General-purpose scripting language
+* [PHP 5.6](http://php.net/docs.php)
 * [Bootstrap 3.3](http://getbootstrap.com/docs/3.3/) - HTML and CSS Framework
 * [JSON](https://www.json.org/) - Format of database file.
 
