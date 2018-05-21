@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+<head>
     <link rel="stylesheet" href="style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -10,10 +11,11 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="container">
-            <?php
+</head>
+
+<body>
+    <div class="container">
+        <?php
             $mydata = json_decode(file_get_contents("DATA.json"), true);
                 echo "<h2>Edit</h2>";
                 echo "<p><a href='index.php'>Back</a></p>";
@@ -54,7 +56,7 @@
 
              if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (isset($_POST['proces'])) {
-                        $additionalUser = array(
+                        $editUser = array(
                                             'id' => $mydata[$value]["id"],
                                             'first_name' => $_POST['first_name'],
                                             'last_name' => $_POST['last_name'],
@@ -62,7 +64,10 @@
                                             'gender' => $_POST['gender'],
                                             'ip_address' => $_POST['ip_address'],
                                             );
-
+  
+                        array_splice($mydata, $value-1, 1, $editUser);
+                        $jsonData = json_encode($mydata);
+//                        file_put_contents('DATA.json', $jsonData);
 
                         echo "<h3>Edited user:</h3></br>".
                             "<table class='table-striped table-responsive'><tr><th>id</th>".
@@ -71,12 +76,12 @@
                             "<th>email</th>".
                             "<th>gender</th>".
                             "<th>ip_address</th></tr>".
-                            "<tr><td>" . $additionalUser['id'] . "</td><td>" . $additionalUser['first_name'] ."</td><td>" . $additionalUser['last_name'] . "</td><td>" . $additionalUser['email'] . "</td><td>" . $additionalUser['gender'] . "</td><td>" . $additionalUser['ip_address'] . "</td></tr></table>";
+                            "<tr><td>" . $editUser['id'] . "</td><td>" . $editUser['first_name'] ."</td><td>" . $editUser['last_name'] . "</td><td>" . $editUser['email'] . "</td><td>" . $editUser['gender'] . "</td><td>" . $editUser['ip_address'] . "</td></tr></table>";
                     } 
                 }
 
             ?>
-        </div>
-    </body>
+    </div>
+</body>
 
 </html>
