@@ -20,8 +20,6 @@
                 echo "<h2>PHP Basic data operations</h2>";
                 echo "<div class='row'><div class='centered menu'>";
                 echo count($mydata) . " records in database</br>";
-                echo "<input type='submit' value='Choose other DB'></br></br>";
-            //    include_once  ("show.php");
                 echo "<p><a href='create.php'>Create user</a></p>";
                 echo "<p><a href='show.php'>Show users</a></p>";
                 echo "<p><a href='search.php'>Search</a></p></div></div>";
