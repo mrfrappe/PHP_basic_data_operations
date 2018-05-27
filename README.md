@@ -5,7 +5,7 @@ Aplication for basic operation on database json file.
 1. Create new database record.
 2. Show database from DATA.json file in table.
 3. Search in database by id, first_name, last_name, gender, email, ip_address.
-//4. Edit database record.
+4. Edit database record.
 
 ## Built With
 
