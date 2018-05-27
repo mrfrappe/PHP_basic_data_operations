@@ -64,10 +64,10 @@
                                             'gender' => $_POST['gender'],
                                             'ip_address' => $_POST['ip_address'],
                                             );
-  
-                        array_splice($mydata, $value-1, 1, $editUser);
+
+                        $mydata[$value-1] = $editUser;
                         $jsonData = json_encode($mydata);
-//                        file_put_contents('DATA.json', $jsonData);
+                        file_put_contents('DATA.json', $jsonData);
 
                         echo "<h3>Edited user:</h3></br>".
                             "<table class='table-striped table-responsive'><tr><th>id</th>".
